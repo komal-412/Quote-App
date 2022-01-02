@@ -10,9 +10,9 @@ mongoose.connect('mongodb://localhost:27017/blog-post')
 .then(()=>{
     console.log("DB Connected");
 })
-// .catch((err)=>{
-//     console.log(err);
-// })
+.catch((err)=>{
+    console.log(err);
+})
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
 
-// seedDB();
+ seedDB();
 
 app.get('/', (req, res)=>{
     res.redirect('/posts')
