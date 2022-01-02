@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Quote</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <link rel="stylesheet" href="/stylesheets/app.css">
+
+</head>
+<style>
+
+  body{
+
+    background-color: #b3cec8;
+    }
+
+    #nav{
+        background-color: #036666;
+
+    }
+    
+  #form{
+    padding: 20px;
+    background-color: white;
+    width: 35%;
+    height: 300px;
+    margin: 10% auto;
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgb(104, 104, 104);
+  }
+
+  label{
+
+    font-weight: bold;
+  }
+
+  input{
+      background-color: #d9d9d9;
+      border: 1px solid #b1a7a6;
+      width: 100%;
+      height: 30px;
+      border-radius: 4px;
+  }
+
+  textarea{
+      background-color: #d9d9d9;
+      border: 1px solid #b1a7a6;
+      width: 100%;
+      border-radius: 4px;
+  }
+
+  #btn{
+
+    padding: 10px;
+    background-color: #036666;
+    border-radius: 4px;
+    color:white;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 15px;
+    width: 90px;
+  }
+
+
+</style>
+<body>
+    
+    <!-- <h1>Add Post</h1> -->
+    <div class="ui fixed inverted menu" id="nav">
+        <div class="ui container">
+          <div class="header item"><i class="paper plane outline icon"></i>Quotes App</div>
+          <a href="/posts" class="item">Quotes</a>
+          <a href="/posts/new" class="item">New Quote</a>
+          <div class="right menu">
+            <div class="item">
+              <span>
+                Created by Komal Sharma
+              </span>
+              <span>&nbsp;&nbsp;&nbsp;</span>
+              
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <div id="form">    
+    
+    <form action="/posts" method="POST">
+    
+        <!-- <div>
+            <label for="title">Title :</label>
+            <input type="text" name="title" id="title" placeholder="Title">
+        </div><br> -->
+        <div>
+            <label for="author">Author :</label><br>
+            <input type="text" name="author" id="author">
+        </div><br>
+        <div>
+            <label for="description">Text:</label><br>
+            <textarea name="description" id="description" cols="70" rows="6"></textarea>
+        </div>
+        <br>
+        <button type="submit" id="btn">Add Post</button>
+
+
+    </form>
+    </div>
+
+</body>
+</html>

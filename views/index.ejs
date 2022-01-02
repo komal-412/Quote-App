@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+  <link rel="stylesheet" href="/stylesheets/app.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unna&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chivo:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<style>
+
+    body{
+        background-color: #b3cec8;
+    }
+
+    #nav{
+        background-color: #036666;
+
+    }
+    h1{
+        text-align: center;
+    }
+    #new{
+        /* border: 2px solid black; */
+        margin-left: 46%;
+        padding: 10px;
+        text-decoration: none;
+        background-color: #036666;
+        border-radius: 4px;
+        color:white;
+        font-family: 'Libre Baskerville', serif;
+        font-size: 12px;
+    }
+    ul{
+        margin-left: 25%;
+        list-style: none;
+    }
+    li{
+        width: 600px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 1px 1px 2px rgb(104, 104, 104);
+        padding: 16px;
+        margin-bottom: 10px;
+        background-color: #8ac3d7;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    #text{
+
+       overflow:hidden;
+       margin-right: 10px;
+    }
+
+    #desc{
+
+        font-size: 20px;
+        font-family: 'Unna', serif;
+        
+    }
+    
+    #author{
+
+        font-family:  'Chivo', sans-serif;
+        font-weight: lighter;
+        font-size: 10px;
+       
+    }
+
+    .btn{
+    padding: 7px 20px;
+    background-color: #036666;
+    border-radius: 4px;
+    color:white;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 12px;
+    text-decoration: none;
+    width: 150px;
+    margin-bottom: 10px;
+    }
+    
+    #rightSide{
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+    }
+
+    .btn:hover{
+
+        background-color:#b3cec8
+    }
+
+
+</style>
+
+<body>
+    
+    <div class="ui fixed inverted menu" id="nav">
+        <div class="ui container">
+          <div class="header item"><i class="paper plane outline icon"></i>Quotes App</div>
+          <a href="/posts" class="item">Quotes</a>
+          <a href="/posts/new" class="item">New Quote</a>
+          <div class="right menu">
+            <div class="item">
+              <span>
+                Created by Komal Sharma
+              </span>
+              <span>&nbsp;&nbsp;&nbsp;</span>
+              
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <br><br><br><br><br>
+    <a id="new" href="/posts/new">Add New Quote</a>
+    <br><br>
+    <ul>
+
+        <% for(let post of posts){ %> 
+
+            <li>
+                <!-- <h3><%= post.title %> </h3> -->
+                <div id="text">
+
+                    <p id="desc"><%= post.description %> </p>
+                    <p id="author">- <%= post.author %> </p>
+
+                </div>
+                
+                <div id="rightSide">
+                    <a href="/posts/<%= post._id %> " class="btn" id="view">View FullScreen</a>
+                    <form action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                        <button type="submit" class="btn">Delete</button>
+                    </form>
+                </div>
+                
+                <!-- <a href="/posts/<%= post._id %>/edit " id="edit">Edit</a> -->
+
+                
+            </li>
+
+        <% } %> 
+    </ul>
+
+</body>
+</html>
